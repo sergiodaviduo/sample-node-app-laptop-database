@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>Laptop Repair Manual Database</title>
+    <link rel="stylesheet" href="/static/main.css">
+	{{#each jsscripts}}
+    <script src="/static/{{this}}"></script>
+    {{/each}}
+</head>
+<body>
+    <div class="navBar">
+        <ul>
+            <li><div class="nav"><a href="../">Home</a></div></li>
+            <li><div class="nav navBar"><a href="#">Add:</a></div>
+                <div class="submenu">
+                    <a href="../laptops">Laptop</a>
+                    <a href="../add_manufacturer">Manufacturer</a>
+                    <a href="../add_cpu">CPU</a>
+                    <a href="../add_graphics">GPU</a>
+                    <a href="../add_laptop_cpus">Laptop/CPU pair</a>
+                    <a href="../add_laptop_graphics">Laptop/GPU pair</a>
+                </div>
+            </li>
+            <li><div class="nav"><a href="../laptops/update">Update Laptop</a></div></li>
+            <li><div class="nav"><a href="../delete_laptop">Delete Laptop</a></div></li>
+            <li><div class="nav"><a href="#">Search</a></div>
+                <div class="submenu">
+                    <a href="../search_laptops_cpu">Search Laptop by CPU</a>
+                    <a href="../search_laptops_graphics">Search Laptop by GPU</a>
+                </div>
+            </li>
+            <li><div class="nav"><a href="../list">List Individual Entities</a></div></li>
+            <li><div class="nav"><a href="../about#">About</a></div></li>
+        </ul>
+    </div>
+	{{{body}}}
+</body>
+</html>

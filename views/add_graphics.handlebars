@@ -1,0 +1,17 @@
+<form method="POST" id="addGraphics" action="/add_graphics">
+  <h3> Add Graphics </h3>
+  <label for="graphicsName">Graphics Name</label></br>
+  <input type="text" id="graphicsName" name="graphicsName" required></br>
+
+  <label for="dedicatedMem">Dedicated Memory</label></br>
+  <input type="number" id="dedicatedMem" name="dedicatedMem" required></br>
+
+  <label for="">Manufacturer (If the manufacturer is not found please return to the homepage and add the desired manufacturer first)</label></br>
+  <select id="manufacturers" name = manufacturerID>
+    <option></option>
+    {{#each manufacturer}}
+    <option value = {{manufacturerID}}>{{manufacturerName}}</option>
+    {{/each}}
+  </select> </br> </br>
+  <input type="submit">
+</form>

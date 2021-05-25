@@ -1,0 +1,22 @@
+<div class="direction">
+	<h3 class="direction">Select a laptop and CPU pair to associate:</h3>
+</div>
+<div>
+	<form method="POST" action ="/add_laptop_cpus">
+		<label for="LaptopList">Laptops:</label>
+		<select name="laptopID" id="laptop">
+			{{#each laptops}}
+				<option value = {{laptopID}}>{{laptopName}}</option>
+			{{/each}}
+		</select>
+		<br><br>
+		<label for="CPUList">CPUs:</label>
+		<select name="cpuID" id="cpus">
+			{{#each cpus}}
+				<option value = {{cpuID}}>{{cpuName}}</option>
+			{{/each}}
+		</select>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>

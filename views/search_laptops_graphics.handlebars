@@ -1,0 +1,35 @@
+<h1>Search for laptops by GPU</h1>
+<form action="" method="" id="filter_laptops">
+	<label>GPU Name: </label>
+	<select id = "filter">
+		{{#each graphics}}
+			<option> {{graphicsName}} </option>
+		{{/each}}
+	</select>
+    <input type="button" value="Filter" onclick="filterLaptopsByGraphics()" id = "filter">
+</form>
+<h2>Search results:</h2>
+<div class="table">
+	<table>
+	  <tr>
+	  	<th>graphicsName</th>
+		<th>laptopID</th>
+		<th>laptopName</th>
+		<th>manufactuerID</th>
+		<th>ram</th>
+		<th>storage</th>
+		<th>pdfLink</th>
+	  </tr>
+	  {{#each laptops}}
+		<tr>
+		  <td>{{graphicsName}}</td>
+		  <td>{{laptopID}}</td>
+		  <td>{{laptopName}}</td>
+		  <td>{{manufacturerID}}</td>
+		  <td>{{ram}}</td>
+		  <td>{{storageAmount}}</td>
+		  <td><a href="#">{{pdfLink}}</a></td>
+		</tr>
+	  {{/each}}
+	</table>
+</div>

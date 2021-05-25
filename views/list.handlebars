@@ -1,0 +1,181 @@
+<h1>Lists Current Entities</h1>
+<br>
+<form action="" method="" id="update_laptops" onsubmit="">
+	<label for="">Entity Table to List</label></br>
+	<select name="sample_laptops" id="sample_laptops">
+		<option value="def">-- select --</option>
+		<option value="1">laptops</option>
+		<option value="2">cpus</option>
+		<option value="3">gpus</option>
+		<option value="4">manufacturers</option>
+		<option value="5">laptop cpu pairs</option>
+		<option value="6">laptop gpu pairs</option>
+	</select>
+	<br>
+</form>
+<button id="show">Submit</button>
+
+<div class="table" id="laptopTable">
+	<table>
+	  <tr>
+		<th>laptopID</th>
+		<th>laptopName</th>
+		<th>manufactuerName</th>
+		<th>ram</th>
+		<th>storage</th>
+		<th>pdfLink</th>
+	  </tr>
+	  {{#each laptops}}
+		<tr>
+		  <td>{{laptopID}}</td>
+		  <td>{{laptopName}}</td>
+		  <td>{{manufacturerName}}</td>
+		  <td>{{ram}}</td>
+		  <td>{{storageAmount}}</td>
+		  <td><a href="#">{{pdfLink}}</a></td>
+		</tr>
+	  {{/each}}
+	  {{#each laptopsNoManu}}
+		<tr>
+		  <td>{{laptopID}}</td>
+		  <td>{{laptopName}}</td>
+		  <td>{{manufacturerName}}</td>
+		  <td>{{ram}}</td>
+		  <td>{{storageAmount}}</td>
+		  <td><a href="#">{{pdfLink}}</a></td>
+		</tr>
+	  {{/each}}
+	</table>
+</div>
+<div class="table" id="cpuTable">
+	<table>
+	  <tr>
+		<th>cpuID</th>
+		<th>cpuName</th>
+		<th>clockSpeed</th>
+		<th>manufacturerName</th>
+	  </tr>
+	  {{#each CPUs}}
+	  <tr>
+		<td>{{cpuID}}</td>
+		<td>{{cpuName}}</td>
+		<td>{{clockSpeed}}</td>
+		<td>{{manufacturerName}}</td>
+	  </tr>
+	  {{/each}}
+	  {{#each CPUsNoManu}}
+	  <tr>
+		<td>{{cpuID}}</td>
+		<td>{{cpuName}}</td>
+		<td>{{clockSpeed}}</td>
+		<td>{{manufacturerName}}</td>
+	  </tr>
+	  {{/each}}
+	</table>
+</div>
+<div class="table" id="gpuTable">
+	<table>
+	  <tr>
+		<th>gpuID</th>
+		<th>graphicsName</th>
+		<th>dedicatedMEM</th>
+		<th>manufactuerName</th>
+	  </tr>
+	  {{#each graphics}}
+	  <tr>
+		<td>{{graphicsID}}</td>
+		<td>{{graphicsName}}</td>
+		<td>{{dedicatedMem}}</td>
+		<td>{{manufacturerName}}</td>
+	  </tr>
+	  {{/each}}
+	  {{#each graphicsNoManu}}
+	  <tr>
+		<td>{{graphicsID}}</td>
+		<td>{{graphicsName}}</td>
+		<td>{{dedicatedMem}}</td>
+		<td>{{manufacturerName}}</td>
+	  </tr>
+	  {{/each}}
+	</table>
+</div>
+<div class="table" id="manuTable">
+	<table>
+	  <tr>
+		<th>manufacturerID</th>
+		<th>manufacturerName</th>
+	  </tr>
+	  {{#each manufacturers}}
+	  <tr>
+		<td>{{manufacturerID}}</td>
+		<td>{{manufacturerName}}</td>
+	  </tr>
+	  {{/each}}
+	</table>
+</div>
+<div class="table" id="lapcpuTable">
+	<table>
+	  <tr>
+		<th>laptopName</th>
+		<th>graphicsName</th>
+	  </tr>
+	  {{#each laptopCPUs}}
+	  <tr>
+		<td>{{laptopName}}</td>
+		<td>{{cpuName}}</td>
+	  </tr>
+	  {{/each}}
+	</table>
+</div>
+<div class="table" id="lapgpuTable">
+	<table>
+	  <tr>
+		<th>laptopName</th>
+		<th>cpuName</th>
+	  </tr>
+	  {{#each laptopGraphics}}
+	  <tr>
+		<td>{{laptopName}}</td>
+		<td>{{graphicsName}}</td>
+	  </tr>
+	  {{/each}}
+	</table>
+</div>
+<script>
+	document.getElementById("show").addEventListener("click", showTable);
+
+	function showTable() {
+
+		document.getElementById("laptopTable").style.display = "none";
+		document.getElementById("cpuTable").style.display = "none";
+		document.getElementById("gpuTable").style.display = "none";
+		document.getElementById("manuTable").style.display = "none";
+		document.getElementById("lapgpuTable").style.display = "none";
+		document.getElementById("lapcpuTable").style.display = "none";
+
+		if(document.getElementById("sample_laptops").value == "1")
+		{
+			document.getElementById("laptopTable").style.display = "block";
+		}
+		else if(document.getElementById("sample_laptops").value == "2")
+		{
+			document.getElementById("cpuTable").style.display = "block";
+		}
+		else if(document.getElementById("sample_laptops").value == "3")
+		{
+			document.getElementById("gpuTable").style.display = "block";
+		}
+		else if(document.getElementById("sample_laptops").value == "4")
+		{
+			document.getElementById("manuTable").style.display = "block";
+		}
+		else if(document.getElementById("sample_laptops").value == "5")
+		{
+			document.getElementById("lapcpuTable").style.display = "block";
+		}
+		else if(document.getElementById("sample_laptops").value == "6")
+		{
+			document.getElementById("lapgpuTable").style.display = "block";
+		}
+	}
+</script>

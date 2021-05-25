@@ -1,0 +1,20 @@
+<div class="direction">
+    <h3 class="direction">Delete laptop:</h3>
+</div>
+<div>
+    <form method="POST">
+        <div class="entityEntry">
+            <label for="LaptopToDelete">Choose laptop to delete:</label>
+            <select id="laptopID" name = "laptopID">
+                {{#each laptops}}
+                    <option value={{laptopID}}> {{laptopName}} </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="entityEntry">
+            <button onclick="submitForm()">Submit</button>
+        </div>
+    </form>
+    <!--<button id="checkVal">checkValue</button>-->
+</div>

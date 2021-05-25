@@ -1,0 +1,112 @@
+body {
+	/* #ADD836 */
+	background-color: #82cae0
+}
+
+h3, h5 {
+	text-align: center
+}
+
+.title {
+	
+}
+ 
+.entityEntry {
+	/* top right-left bottom */
+	padding: 0px 50px 0px;
+	background-color: #add8e6;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+
+/* Menu */
+li div.nav a{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li div.nav a:hover, .navBar:hover {
+  background-color: #111;
+}
+
+li div.subBar {
+  display: inline-block;
+}
+
+.navBar {
+	text-align: center;
+	padding: 0px;
+	min-width: 143px;
+}
+
+/* Dropdown */
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  text-align: center;
+  /*padding: 14px 16px;*/
+  text-decoration: none;
+  z-index: 1;
+}
+
+.submenu a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  background-color: #111;
+}
+
+li:hover .submenu{
+	display: block
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#laptopTable {
+	display: none
+}
+
+#cpuTable {
+	display: none
+}
+
+#gpuTable {
+	display: none
+}
+
+#manuTable {
+	display: none
+}
+
+#lapgpuTable {
+	display: none
+}
+
+#lapcpuTable {
+	display: none
+}

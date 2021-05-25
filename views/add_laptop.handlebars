@@ -1,0 +1,45 @@
+<div class="title">
+    <h3>Enter the Name and RAM, and confirm the Manufacturer, CPU and Graphics of the laptop:</h3>
+    <h5>
+        (Note: if the manufacturer, CPU, or Graphics are not found, please add the desired row first)
+    </h5>
+</div>
+<div>
+    <form method="POST" id="add-laptop" action="/laptops">
+        <div class="entityEntry">
+            <label for="laptopName">Name</label>
+            <input type="text" id="laptopName" name="laptopName">
+        </div>
+        <br>
+        <div class="entityEntry">
+            <label for="">Manufacturer</label></br>
+              <select id="manufacturers" name = "laptopManu">
+                <option value="default" selected>No manufacturer</option>
+                {{#each manufacturer}}
+                <option value = {{manufacturerID}}>{{manufacturerName}}</option>
+                {{/each}}
+              </select> 
+        </div>
+        <br>
+        <div class="entityEntry">
+            <label for="laptopStorage">Storage</label>
+            <input type="text" id="laptopStorage" name="laptopStorage">
+        </div>
+        <br>
+        <div class="entityEntry">
+            <label for="laptopRAM">RAM</label>
+            <input type="text" id="laptopRAM" name="laptopRAM">
+        </div>
+        <br>
+        <div class="entityEntry">
+            <label for="laptopPDF">PDF link</label>
+            <input type="text" id="laptopPDF" name="laptopPDF">
+        </div>
+
+        <br>
+        <div class="entityEntry">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <!--<button id="checkVal">checkValue</button>-->
+</div>
