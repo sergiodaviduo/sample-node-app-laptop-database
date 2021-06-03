@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "laptop-db",
   "version": "1.0.0",
   "description": "Laptop Database in Node.js",
   "main": "main.js",
