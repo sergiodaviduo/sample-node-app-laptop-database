@@ -10,13 +10,13 @@
   "author": "Sergio Urrutia-Oyer",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19",
-    "express": "^5.3.x",
-    "express-handlebars": "^5.3.x",
-    "express-session": "^1.17.x",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.2",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.11.3",
     "mysql": "^2.8.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": "12.22.1"
   }
 }
