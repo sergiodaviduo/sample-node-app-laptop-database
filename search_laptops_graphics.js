@@ -59,7 +59,7 @@ module.exports = function(){
     });
 
 
-    /*Render page with laptops. Requires web based javascript to delete users with AJAX */
+    /*Render page with laptops. */
     router.get('/:graphics', function(req, res){
         var callbackCount = 0;
         var context = {};

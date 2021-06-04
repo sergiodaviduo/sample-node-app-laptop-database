@@ -69,7 +69,7 @@ module.exports = function(){
     });
 
 
-    /*Delete laptop . Requires web based javascript to delete users with AJAX */
+    /* Delete laptop. */
     router.post('/', function(req, res){
         var callbackCount = 0;
         var deletion_counter = 0;

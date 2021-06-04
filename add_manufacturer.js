@@ -9,7 +9,7 @@ module.exports = function(){
 
 
 
-    /*Add manufacturer to database. Requires web based javascript to delete users with AJAX */
+    /*Add manufacturer to database. */
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
         console.log(req.body.manufacturerName);

@@ -34,7 +34,7 @@ module.exports = function(){
 
 
 
-    /*Add cpu to database. Requires web based javascript to delete users with AJAX */
+    /* Add cpu to database. */
     router.post('/', function(req, res){
         var sql = "INSERT INTO CPUs (cpuName, clockSpeed, manufacturerID) VALUES (?, ?, ?)";
         var inserts = [req.body.cpuName, req.body.clockSpeed, req.body.manufacturerID];
