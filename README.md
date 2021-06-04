@@ -4,4 +4,4 @@ Site by Sergio Urrutia-Oyer and lab partner, as part of Oregon State University 
 
 Utilizes Node.js in conjunction with MariaDB to create an editable database of laptops and their specifications.
 
-Must use Node.js v 6.10.2
+Uses Node 16.x
