@@ -94,6 +94,8 @@ module.exports = function(){
         mysql.pool.query(sql, query_index, function(error, results, fields){
             if(error){
                 console.log("*** database re-instantiation failed ***");
+                console.log(results);
+                console.log(fields);
                 res.end();
             }
             else {
