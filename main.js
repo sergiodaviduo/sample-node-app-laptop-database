@@ -15,6 +15,7 @@ app.set('mysql', mysql);
 app.use('/laptops', require('./laptops.js'));
 app.use('/update', require('./update.js'));
 app.use('/list', require('./list.js'));
+app.use('/refresh_db', require('./refresh_db.js'));
 
 //search laptops by cpu or gpu
 app.use('/search_laptops_cpu',require('./search_laptops_cpu.js'));
