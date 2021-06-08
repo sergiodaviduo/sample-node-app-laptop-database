@@ -34,45 +34,45 @@ module.exports = function(){
             "    manufacturerID INT(11)," +
             "    PRIMARY KEY (cpuID)" +
             ");";
-        query += `ALTER TABLE CPUs 
-                    ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
-        query += `INSERT INTO CPUs VALUES (1, 'i5', '3200', 4), 
-                    (2,'i9', '3600', 4), (3,'Ryzen 7 5600X', '3400', 4);`;
-        query += `CREATE TABLE laptops (
-                    laptopID INT(11) AUTO_INCREMENT,
-                        laptopName VARCHAR(255) NOT NULL,
-                        ram VARCHAR(255) NOT NULL,
-                        storageAmount VARCHAR(255) NOT NULL,
-                        pdfLink VARCHAR(255) NOT NULL,    
-                        manufacturerID INT(11),
-                        PRIMARY KEY (laptopID)
-                    );`;
-        query += `ALTER TABLE laptops
-                    ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
-        query += `INSERT INTO laptops VALUES (1, 'ProBook', '16GB', '500GB', 'google.com', 3), 
-                    (2, 'XPS', '16GB', '1TB', 'google.com', 1);`;
-        query += `CREATE TABLE laptopCPUs (
-            pairID INT(11) AUTO_INCREMENT,
-                laptopID INT(11),
-                cpuID INT(11),
-                PRIMARY KEY (pairID)
-            );`;
-        query += `ALTER TABLE laptopCPUs
-                    ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
-        query += `ALTER TABLE laptopCPUs
-                ADD FOREIGN KEY (cpuID) REFERENCES CPUs (cpuID);`;
-        query += `INSERT INTO laptopCPUs VALUES (1, 1, 2), (2, 2, 1), (3, 2, 3);`;
-        query += `CREATE TABLE laptopGraphics (
-                pairID INT(11) AUTO_INCREMENT,
-                    laptopID INT(11),
-                    graphicsID INT(11),
-                    PRIMARY KEY (pairID)
-            );`;
-        query += `ALTER TABLE laptopGraphics
-                ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
-        query += `ALTER TABLE laptopGraphics
-                ADD FOREIGN KEY (graphicsID) REFERENCES graphics (graphicsID);`;
-        query += `INSERT INTO laptopGraphics VALUES (1, 1, 1), (2, 2, 2), (3, 2, 3);`;
+        // query += `ALTER TABLE CPUs
+        //             ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
+        // query += `INSERT INTO CPUs VALUES (1, 'i5', '3200', 4),
+        //             (2,'i9', '3600', 4), (3,'Ryzen 7 5600X', '3400', 4);`;
+        // query += `CREATE TABLE laptops (
+        //             laptopID INT(11) AUTO_INCREMENT,
+        //                 laptopName VARCHAR(255) NOT NULL,
+        //                 ram VARCHAR(255) NOT NULL,
+        //                 storageAmount VARCHAR(255) NOT NULL,
+        //                 pdfLink VARCHAR(255) NOT NULL,
+        //                 manufacturerID INT(11),
+        //                 PRIMARY KEY (laptopID)
+        //             );`;
+        // query += `ALTER TABLE laptops
+        //             ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
+        // query += `INSERT INTO laptops VALUES (1, 'ProBook', '16GB', '500GB', 'google.com', 3),
+        //             (2, 'XPS', '16GB', '1TB', 'google.com', 1);`;
+        // query += `CREATE TABLE laptopCPUs (
+        //     pairID INT(11) AUTO_INCREMENT,
+        //         laptopID INT(11),
+        //         cpuID INT(11),
+        //         PRIMARY KEY (pairID)
+        //     );`;
+        // query += `ALTER TABLE laptopCPUs
+        //             ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
+        // query += `ALTER TABLE laptopCPUs
+        //         ADD FOREIGN KEY (cpuID) REFERENCES CPUs (cpuID);`;
+        // query += `INSERT INTO laptopCPUs VALUES (1, 1, 2), (2, 2, 1), (3, 2, 3);`;
+        // query += `CREATE TABLE laptopGraphics (
+        //         pairID INT(11) AUTO_INCREMENT,
+        //             laptopID INT(11),
+        //             graphicsID INT(11),
+        //             PRIMARY KEY (pairID)
+        //     );`;
+        // query += `ALTER TABLE laptopGraphics
+        //         ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
+        // query += `ALTER TABLE laptopGraphics
+        //         ADD FOREIGN KEY (graphicsID) REFERENCES graphics (graphicsID);`;
+        // query += `INSERT INTO laptopGraphics VALUES (1, 1, 1), (2, 2, 2), (3, 2, 3);`;
 
         return query;
     }
