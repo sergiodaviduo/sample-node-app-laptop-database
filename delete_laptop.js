@@ -46,7 +46,7 @@ module.exports = function(){
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 console.log("delete laptop gpus request failed");
-                res.render('failure', error)
+                res.render('failure', error);
             }
             complete();
         });
@@ -61,7 +61,7 @@ module.exports = function(){
         getLaptops(res, mysql, context, complete);
 
         function complete() {
-            callbackCount++
+            callbackCount++;
             if(callbackCount >= 1) {
                 res.render("delete_laptop", context);
             }

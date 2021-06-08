@@ -79,12 +79,7 @@ module.exports = function(){
 
     /* Refresh database 15 minutes after the last edit. */
     router.post('/', function(req, res){
-        var callbackCount = 0;
-        var context = {};
-        var mysql = req.app.get('mysql');
-
         // 24 queries
-
         var query_index = new Array(24);
         var count = 24;
         var index = 0;
@@ -95,15 +90,14 @@ module.exports = function(){
             index++;
         }
 
-        var sql = createRefreshQuery()
+        var sql = createRefreshQuery();
         mysql.pool.query(sql, query_index, function(error, results, fields){
             if(error){
-                console.log("database re-instantiation failed");
+                console.log("*** database re-instantiation failed ***");
                 res.end();
             }
-            callbackCount++;
-            if(callbackCount >= 1) {
-                res.render("index", context);
+            else {
+                res.redirect('/list');
             }
         });
     });
