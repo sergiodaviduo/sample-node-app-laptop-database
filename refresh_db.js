@@ -103,7 +103,7 @@ module.exports = function(){
             }
             callbackCount++;
             if(callbackCount >= 1) {
-                res.render("refresh_db", context);
+                res.render("index", context);
             }
         });
     });
