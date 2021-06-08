@@ -76,7 +76,7 @@ module.exports = function(){
                 ADD FOREIGN KEY (graphicsID) REFERENCES graphics (graphicsID);`;
         query += `INSERT INTO laptopGraphics VALUES (1, 1, 1), (2, 2, 2), (3, 2, 3);`;
 
-        return query
+        return query;
     }
 
     /* Refresh database 15 minutes after the last edit. */
@@ -88,8 +88,8 @@ module.exports = function(){
         // 24 queries
 
         var query_index = new Array(24);
-        var count = 24
-        var index = 0
+        var count = 24;
+        var index = 0;
 
         while (count != 0) {
             query_index[index] = count;
@@ -103,13 +103,12 @@ module.exports = function(){
                 console.log("database re-instantiation failed");
                 res.end();
             }
-            callbackCount++
+            callbackCount++;
             if(callbackCount >= 1) {
                 res.render("refresh_db", context);
             }
         });
     });
-
 
     return router;
 }();

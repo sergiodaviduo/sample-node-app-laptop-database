@@ -1,6 +1,5 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({
-  multipleStatements: true,
   connectionLimit : 10,
   host            : 'un0jueuv2mam78uv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   user            : 'lonpn44yqes1yd2f',

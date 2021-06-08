@@ -62,7 +62,7 @@ module.exports = function(){
     router.get('/:cpu', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["filterLaptops.js"]
+        context.jsscripts = ["filterLaptops.js"];
         var mysql = req.app.get('mysql');
 
         getLaptopsByCPU(req, res, mysql, context, complete);
@@ -71,7 +71,7 @@ module.exports = function(){
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                console.log("sql requests completed")
+                console.log("sql requests completed");
                 res.render('search_laptops_cpu', context);
             }
         }

@@ -17,12 +17,13 @@ module.exports = function(){
     }
 
     function getManufacturers(res, mysql, context, complete){
-        var sql = "SELECT * FROM manufacturers"
+        var sql = "SELECT * FROM manufacturers";
         mysql.pool.query(sql, function(error, results, fields){
             if(error){
                 console.log("laptop search request failed");
-                res.render('failure', error)
+                res.render('failure', error);
             }
+            // give app the results of the query to be displayed in handlebars
             context.manufacturer = results;
 
             complete();
@@ -38,7 +39,7 @@ module.exports = function(){
         getManufacturers(res, mysql, context, complete);
 
         function complete() {
-            callbackCount++
+            callbackCount++;
             if(callbackCount >= 2) {
                 res.render("update_laptop", context);
             }
@@ -53,7 +54,7 @@ module.exports = function(){
         getManufacturers(res, mysql, context, complete);
 
         function complete() {
-            callbackCount++
+            callbackCount++;
             if(callbackCount >= 1) {
                 res.render("add_laptop", context);
             }
@@ -64,13 +65,13 @@ module.exports = function(){
 
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
-    var null_val = "NULL";
-    var manufacturer = "?";
+        var null_val = "NULL";
+        var manufacturer = "?";
 		var insert = [req.body.laptopName, req.body.laptopManu, req.body.laptopRAM, req.body.laptopStorage, req.body.laptopPDF];
-    if(req.body.laptopManu == "default"){
-      manufacturer = null_val;
-		  insert = [req.body.laptopName, req.body.laptopRAM, req.body.laptopStorage, req.body.laptopPDF];
-    }
+        if(req.body.laptopManu == "default"){
+            manufacturer = null_val;
+		    insert = [req.body.laptopName, req.body.laptopRAM, req.body.laptopStorage, req.body.laptopPDF];
+        }
 		// now insert laptop with new manufacturer id
 		var queryLaptop = "INSERT INTO laptops (laptopName, manufacturerID, ram, storageAmount, pdfLINK)" +
 			  "VALUES (?,"+manufacturer+",?,?,?)";
