@@ -90,8 +90,9 @@ module.exports = function(){
             index++;
         }
 
-        var sql = createRefreshQuery();
-        mysql.pool.query(sql, [2,1], function(error, results, fields){
+        var query = "DROP TABLE IF EXISTS `laptopCPUs`;";
+        query += "DROP TABLE IF EXISTS `laptopGraphics`;";
+        mysql.pool.query(query, [2,1], function(error, results, fields){
             if(error){
                 console.log("*** database re-instantiation failed ***");
                 console.log(results);
