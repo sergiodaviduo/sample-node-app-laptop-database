@@ -2,6 +2,7 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
     var mysql = require('./dbcon.js');
+    const axios = require('axios');
 
     function createRefreshQuery(){
         var query = "DROP TABLE IF EXISTS `laptopCPUs`;";
@@ -103,6 +104,20 @@ module.exports = function(){
             }
         });
     });
+
+    // sends post request to clear and re-init database
+    exports.refresh_data = function() {
+        axios
+            .post('./refresh_db', {
+            })
+            .then(res => {
+                console.log(`statusCode: ${res.statusCode}`)
+                console.log(res)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     return router;
 }();

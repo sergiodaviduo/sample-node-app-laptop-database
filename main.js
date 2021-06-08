@@ -31,6 +31,8 @@ app.use('/add_laptop_graphics', require('./add_laptop_graphics.js'));
 // home
 app.get('/', (req, res) => {
   res.render('index');
+  let data = require('refresh_db').;
+  data.refresh_data();
 });
 
 // delete
