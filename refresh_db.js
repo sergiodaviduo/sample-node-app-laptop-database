@@ -1,5 +1,3 @@
-import * as client from "mysql";
-
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
