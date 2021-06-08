@@ -5,35 +5,35 @@ module.exports = function(){
 
     function createRefreshQuery(){
         var query = "DROP TABLE IF EXISTS `laptopCPUs`;";
-        query += "DROP TABLE IF EXISTS `laptopGraphics`;";
-        query += "DROP TABLE IF EXISTS `laptops`;";
-        query += "DROP TABLE IF EXISTS `graphics`;";
-        query += "DROP TABLE IF EXISTS `CPUs`;";
-        query += "DROP TABLE IF EXISTS `manufacturers`;"
-        query +="CREATE TABLE manufacturers (" +
-            "manufacturerID INT(11) AUTO_INCREMENT, " +
-            "manufacturerName VARCHAR(255), " +
-            "PRIMARY KEY (manufacturerID)" +
-            ");";
-        query += "INSERT INTO manufacturers VALUES (1, 'Dell'), (2,'Nvidia'), (3,'HP'), (4,'Intel');\n";
-        query += "CREATE TABLE graphics (\n" +
-            "graphicsID INT(11) AUTO_INCREMENT, " +
-            "graphicsName VARCHAR(255) NOT NULL, " +
-            "dedicatedMem VARCHAR(255) NOT NULL, " +
-            "manufacturerID INT(11), " +
-            "PRIMARY KEY (graphicsID)" +
-            ");";
-        query += "ALTER TABLE graphics\n" +
-            "ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);";
-        query += "INSERT INTO graphics VALUES (1, 'GTX 2070', '8GB', 2), (2,'GTX 3080', " +
-            "'16GB', 2), (3,'Ryzen 5 3600', '10GB', 2);";
-        query += "CREATE TABLE CPUs (" +
-            "cpuID INT(11) AUTO_INCREMENT," +
-            "    cpuName VARCHAR(255) NOT NULL," +
-            "    clockSpeed VARCHAR(255) NOT NULL," +
-            "    manufacturerID INT(11)," +
-            "    PRIMARY KEY (cpuID)" +
-            ");";
+        // query += "DROP TABLE IF EXISTS `laptopGraphics`;";
+        // query += "DROP TABLE IF EXISTS `laptops`;";
+        // query += "DROP TABLE IF EXISTS `graphics`;";
+        // query += "DROP TABLE IF EXISTS `CPUs`;";
+        // query += "DROP TABLE IF EXISTS `manufacturers`;"
+        // query +="CREATE TABLE manufacturers (" +
+        //     "manufacturerID INT(11) AUTO_INCREMENT, " +
+        //     "manufacturerName VARCHAR(255), " +
+        //     "PRIMARY KEY (manufacturerID)" +
+        //     ");";
+        // query += "INSERT INTO manufacturers VALUES (1, 'Dell'), (2,'Nvidia'), (3,'HP'), (4,'Intel');\n";
+        // query += "CREATE TABLE graphics (\n" +
+        //     "graphicsID INT(11) AUTO_INCREMENT, " +
+        //     "graphicsName VARCHAR(255) NOT NULL, " +
+        //     "dedicatedMem VARCHAR(255) NOT NULL, " +
+        //     "manufacturerID INT(11), " +
+        //     "PRIMARY KEY (graphicsID)" +
+        //     ");";
+        // query += "ALTER TABLE graphics\n" +
+        //     "ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);";
+        // query += "INSERT INTO graphics VALUES (1, 'GTX 2070', '8GB', 2), (2,'GTX 3080', " +
+        //     "'16GB', 2), (3,'Ryzen 5 3600', '10GB', 2);";
+        // query += "CREATE TABLE CPUs (" +
+        //     "cpuID INT(11) AUTO_INCREMENT," +
+        //     "    cpuName VARCHAR(255) NOT NULL," +
+        //     "    clockSpeed VARCHAR(255) NOT NULL," +
+        //     "    manufacturerID INT(11)," +
+        //     "    PRIMARY KEY (cpuID)" +
+        //     ");";
         // query += `ALTER TABLE CPUs
         //             ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
         // query += `INSERT INTO CPUs VALUES (1, 'i5', '3200', 4),
