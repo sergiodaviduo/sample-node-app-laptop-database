@@ -80,7 +80,7 @@ module.exports = function(){
     }
 
     /* Refresh database 15 minutes after the last edit. */
-    router.post('/', function(req, res){
+    router.post('/refresh_db', function(req, res){
         var callbackCount = 0;
         var context = {};
         var mysql = req.app.get('mysql');
