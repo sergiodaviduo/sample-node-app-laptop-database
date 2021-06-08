@@ -5,7 +5,7 @@ module.exports = function(){
 
     function createRefreshQuery(){
         var query = "DROP TABLE IF EXISTS `laptopCPUs`;";
-        // query += "DROP TABLE IF EXISTS `laptopGraphics`;";
+        query += "DROP TABLE IF EXISTS `laptopGraphics`;";
         // query += "DROP TABLE IF EXISTS `laptops`;";
         // query += "DROP TABLE IF EXISTS `graphics`;";
         // query += "DROP TABLE IF EXISTS `CPUs`;";
