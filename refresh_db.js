@@ -90,8 +90,7 @@ module.exports = function(){
             index++;
         }
 
-        var query = "DROP TABLE IF EXISTS `laptopCPUs`;";
-        query += "DROP TABLE IF EXISTS `laptopGraphics`;";
+        var query = "DROP TABLE IF EXISTS `laptopCPUs`;DROP TABLE IF EXISTS `laptopGraphics`;";
         mysql.pool.query(query, [2,1], function(error, results, fields){
             if(error){
                 console.log("*** database re-instantiation failed ***");
