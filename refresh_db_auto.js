@@ -1,6 +1,5 @@
 module.exports = function(){
     var express = require('express');
-    var router = express.Router();
     var mysql = require('./dbcon.js');
 
     function createRefreshQuery(){
@@ -77,60 +76,30 @@ module.exports = function(){
         return query;
     }
 
-    /* Refresh database 15 minutes after the last edit. */
-    router.post('/', function(req, res){
-        // 24 queries
-        var query_index = new Array(24);
-        var count = 24;
-        var index = 0;
-
-        while (count != 0) {
-            query_index[index] = count;
-            count--;
-            index++;
-        }
-
-        var query = createRefreshQuery();
-        mysql.pool.query(query, query_index, function(error, results, fields){
-            if(error){
-                console.log("*** database re-instantiation failed ***");
-                console.log(results);
-                console.log(fields);
-                res.end();
-            }
-            else {
-                res.redirect('/list');
-            }
-        });
-    });
-
     // sends post request to clear and re-init database
-    // for manual refresh
-    exports.refresh_data = function() {
-        // 24 queries
-        var query_index = new Array(24);
-        var count = 24;
-        var index = 0;
+    // (will launch the moment module is called), used for when homepage is loaded
+    // 24 queries
+    var query_index = new Array(24);
+    var count = 24;
+    var index = 0;
 
-        while (count != 0) {
-            query_index[index] = count;
-            count--;
-            index++;
-        }
-
-        var query = createRefreshQuery();
-        mysql.pool.query(query, query_index, function(error, results, fields){
-            if(error) {
-                console.log("*** database re-instantiation failed ***");
-                console.log(results);
-                console.log(fields);
-                return 1;
-            }
-            else {
-                return 0;
-            }
-        });
+    while (count != 0) {
+        query_index[index] = count;
+        count--;
+        index++;
     }
 
-    return router;
+    var query = createRefreshQuery();
+    mysql.pool.query(query, query_index, function(error, results, fields){
+        if(error) {
+            console.log("*** database re-instantiation failed ***");
+            console.log(results);
+            console.log(fields);
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    });
+    return 2;
 }();

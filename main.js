@@ -30,9 +30,7 @@ app.use('/add_laptop_graphics', require('./add_laptop_graphics.js'));
 
 // home
 app.get('/', (req, res) => {
-
-  let data = require('./refresh_db.js');
-  if (data.refresh_data() == 1) {
+  if (require('./refresh_db_auto.js') === 1) {
     res.render('index');
   }
   else {
