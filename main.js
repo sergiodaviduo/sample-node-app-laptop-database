@@ -30,12 +30,8 @@ app.use('/add_laptop_graphics', require('./add_laptop_graphics.js'));
 
 // home
 app.get('/', (req, res) => {
-  if (require('./refresh_db_auto.js') === 1) {
-    res.render('index');
-  }
-  else {
-    res.render('index');
-  }
+  require('./refresh_db_auto').refresh_database();
+  res.render('index');
 });
 
 // delete

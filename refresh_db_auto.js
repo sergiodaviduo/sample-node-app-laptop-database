@@ -1,5 +1,6 @@
-module.exports = function(){
+function refresh_database(){
     var express = require('express');
+    var router = express.Router();
     var mysql = require('./dbcon.js');
 
     function createRefreshQuery(){
@@ -77,8 +78,7 @@ module.exports = function(){
     }
 
     // sends post request to clear and re-init database
-    // (will launch the moment module is called), used for when homepage is loaded
-    // 24 queries
+    // for auto refresh
     var query_index = new Array(24);
     var count = 24;
     var index = 0;
@@ -101,5 +101,8 @@ module.exports = function(){
             return 0;
         }
     });
-    return 2;
-}();
+};
+
+module.exports = {
+    refresh_database: refresh_database
+}
