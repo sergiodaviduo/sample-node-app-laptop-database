@@ -97,7 +97,7 @@ function refresh_database(){
             return 1;
         }
         else {
-            console.log("** refreshed **");
+            console.log("** database successfully refreshed **");
             return 0;
         }
     });
