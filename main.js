@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var start_time = new Date();
+require('./refresh_db_auto').refresh_database();
+console.log("starting up, re-clearing database");
 
 app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({extended:true}));
@@ -30,7 +33,7 @@ app.use('/add_laptop_graphics', require('./add_laptop_graphics.js'));
 
 // home
 app.get('/', (req, res) => {
-  require('./refresh_db_auto').refresh_database();
+  // require('./refresh_db_auto').refresh_database();
   res.render('index');
 });
 
