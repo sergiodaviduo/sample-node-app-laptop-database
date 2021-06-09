@@ -123,10 +123,10 @@ module.exports = function(){
                 console.log("*** database re-instantiation failed ***");
                 console.log(results);
                 console.log(fields);
-                res.end();
+                return 1;
             }
             else {
-                res.redirect('/list');
+                return 0;
             }
         });
     }
