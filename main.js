@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
-var start_time = new Date();
+// heroku free version stops app after inactivity for 30 minutes, so since this is
+// a sample project, using this to constantly keep data integrity since this is public
 require('./refresh_db_auto').refresh_database();
 console.log("starting up, re-clearing database");
 
