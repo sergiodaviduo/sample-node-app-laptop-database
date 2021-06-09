@@ -1,6 +1,5 @@
 function refresh_database(){
     var express = require('express');
-    var router = express.Router();
     var mysql = require('./dbcon.js');
 
     function createRefreshQuery(){
@@ -98,6 +97,7 @@ function refresh_database(){
             return 1;
         }
         else {
+            console.log("** refreshed **");
             return 0;
         }
     });
