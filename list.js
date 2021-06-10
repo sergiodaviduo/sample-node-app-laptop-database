@@ -6,18 +6,28 @@ module.exports = function(){
 
     function getLaptops(res, mysql, context, complete){
         mysql.pool.query("SELECT * FROM laptops INNER JOIN manufacturers on laptops.manufacturerID = manufacturers.manufacturerID", function(error, results, fields){
-            if(error){
+            no_laptops = 0;
+            if(results.length == 0) {
+                console.log('no laptops with manufacturers');
+                no_laptops = 1;
+            }
+            else if(error){
                 console.log("L request failed");
                 res.render('failure', error)
             }
             context.laptops = results;
+            console.log(context.laptops);
             complete();
+            return no_laptops;
         })
     }
 
-    function getLaptopsNoManu(res, mysql, context, complete){
+    function getLaptopsNoManu(res, mysql, context, no_laptops, complete){
         mysql.pool.query("SELECT * FROM laptops WHERE manufacturerID IS NULL", function(error, results, fields){
-            if(error){
+            if(no_laptops === 1 && results.length === 0) {
+                console.log('no laptops in database');
+            }
+            else if(error){
                 console.log("L request failed");
                 res.render('failure', error)
             }
@@ -74,7 +84,7 @@ module.exports = function(){
         mysql.pool.query("SELECT manufacturerID, manufacturerName FROM manufacturers", function(error, results, fields){
             if(error){
                 console.log("M request failed");
-                res.render('failure', error)
+                res.render('failure', error);
             }
             context.manufacturers = results;
             complete();
@@ -104,14 +114,18 @@ module.exports = function(){
     }
 
 
-    /*List page. Requires web based javascript to delete users with AJAX */
+    /* List page */
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = {};
         var mysql = req.app.get('mysql');
 
-        getLaptops(res, mysql, context, complete);
-        getLaptopsNoManu(res,mysql,context,complete);
+        var no_laptops = 0;
+        no_laptops = getLaptops(res, mysql, context, complete);
+        if (no_laptops != 1) {
+            no_laptops = 0;
+        }
+        getLaptopsNoManu(res,mysql,context,no_laptops,complete);
         getCPUs(res, mysql, context, complete);
         getCPUsNoManu(res, mysql, context, complete);
         getGraphics(res, mysql, context, complete);

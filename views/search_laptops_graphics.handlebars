@@ -1,3 +1,4 @@
+{{#if laptops}}
 <h1>Search for laptops by GPU</h1>
 <form action="" method="" id="filter_laptops">
 	<label>GPU Name: </label>
@@ -33,3 +34,8 @@
 	  {{/each}}
 	</table>
 </div>
+{{else}}
+    <br>
+    <h3> Laptop table is empty; add a Laptop or refresh database at homepage. </h3>
+    </br>
+{{/if}}

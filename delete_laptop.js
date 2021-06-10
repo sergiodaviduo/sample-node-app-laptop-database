@@ -7,7 +7,11 @@ module.exports = function(){
     function getLaptops(res, mysql, context, complete){
         var sql = "SELECT * FROM laptops"
         mysql.pool.query(sql, function(error, results, fields){
-            if(error){
+            if(results.length == 0) {
+                console.log('no laptops in database');
+                res.render('empty');
+            }
+            else if(error){
                 console.log("laptop  request failed");
                 res.render('failure', context)
             }

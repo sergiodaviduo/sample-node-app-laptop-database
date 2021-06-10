@@ -1,3 +1,4 @@
+{{#if laptops}}
 <div class="direction">
 	<h3 class="direction">Select a laptop and graphics pair to associate:</h3>
 </div>
@@ -21,3 +22,8 @@
 	</form>
 </div>
 <br>
+{{else}}
+<br>
+<h3> Laptop table is empty; add a Laptop or refresh database at homepage. </h3>
+</br>
+{{/if}}

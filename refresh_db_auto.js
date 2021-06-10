@@ -14,7 +14,7 @@ function refresh_database(){
             "manufacturerName VARCHAR(255), " +
             "PRIMARY KEY (manufacturerID)" +
             ");";
-        query += "INSERT INTO manufacturers VALUES (1, 'Dell'), (2,'Nvidia'), (3,'HP'), (4,'Intel');\n";
+        query += "INSERT INTO manufacturers VALUES (1, 'Dell'), (2,'Nvidia'), (3,'HP'), (4,'Intel'), (5,'AMD');\n";
         query += "CREATE TABLE graphics (\n" +
             "graphicsID INT(11) AUTO_INCREMENT, " +
             "graphicsName VARCHAR(255) NOT NULL, " +
@@ -24,8 +24,8 @@ function refresh_database(){
             ");";
         query += "ALTER TABLE graphics\n" +
             "ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);";
-        query += "INSERT INTO graphics VALUES (1, 'GTX 2070', '8GB', 2), (2,'GTX 3080', " +
-            "'16GB', 2), (3,'Ryzen 5 3600', '10GB', 2);";
+        query += "INSERT INTO graphics VALUES (1, 'GeForce GTX 2070', '8GB', 2), (2,'GeForce GTX 3080', " +
+            "'16GB', 2), (3,'GeForce RTX 3060', '6GB', 2), (4, 'GeForce GT 630M', '2GB GDDR5', 2);";
         query += "CREATE TABLE CPUs (" +
             "cpuID INT(11) AUTO_INCREMENT," +
             "    cpuName VARCHAR(255) NOT NULL," +
@@ -36,7 +36,8 @@ function refresh_database(){
         query += `ALTER TABLE CPUs
                     ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
         query += `INSERT INTO CPUs VALUES (1, 'i5', '3200', 4),
-                    (2,'i9', '3600', 4), (3,'Ryzen 7 5600X', '3400', 4);`;
+                    (2,'i9', '3600', 4), (3,'Ryzen 7 5600X', '3400', 5), (4,'Ryzen 5', '3600', 5), (5,'i3','3000', 4), 
+                    (6,'i7','3400', 4);`;
         query += `CREATE TABLE laptops (
                     laptopID INT(11) AUTO_INCREMENT,
                         laptopName VARCHAR(255) NOT NULL,
@@ -48,8 +49,11 @@ function refresh_database(){
                     );`;
         query += `ALTER TABLE laptops
                     ADD FOREIGN KEY (manufacturerID) REFERENCES manufacturers (manufacturerID);`;
-        query += `INSERT INTO laptops VALUES (1, 'ProBook', '16GB', '500GB', 'google.com', 3),
-                    (2, 'XPS', '16GB', '1TB', 'google.com', 1);`;
+        query += `INSERT INTO laptops VALUES (1, 'ProBook', '16GB', '500GB', 'google.com', 3), 
+                    (2, 'XPS14-9092sLV', '16GB', '1TB', 'google.com', 1), 
+					(3, 'XPS 13', '8 or 16 GB', '256 or 512 GB', 'https://dl.dell.com/topicspdf/xps-13-9350-laptop_service-manual_en-us.pdf', 1),
+					(4, 'XPS 13 7390 2-in-1', '8 GB LPDDR4x', '256 GB', 'https://dl.dell.com/topicspdf/xps-13-7390-2-in-1-laptop_service-manual_en-us.pdf', 1),
+					(5, 'OMEN Laptop 15z-en100', '8 GB', '512 GB', 'http://h10032.www1.hp.com/ctg/Manual/c06638088.pdf', 3);`;
         query += `CREATE TABLE laptopCPUs (
             pairID INT(11) AUTO_INCREMENT,
                 laptopID INT(11),
@@ -57,10 +61,10 @@ function refresh_database(){
                 PRIMARY KEY (pairID)
             );`;
         query += `ALTER TABLE laptopCPUs
-                    ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
+                ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
         query += `ALTER TABLE laptopCPUs
                 ADD FOREIGN KEY (cpuID) REFERENCES CPUs (cpuID);`;
-        query += `INSERT INTO laptopCPUs VALUES (1, 1, 2), (2, 2, 1), (3, 2, 3);`;
+        query += `INSERT INTO laptopCPUs VALUES (1, 1, 2), (2,3,1),(3,3,6),(4,3,5),(5,2,1);`;
         query += `CREATE TABLE laptopGraphics (
                 pairID INT(11) AUTO_INCREMENT,
                     laptopID INT(11),
@@ -71,7 +75,7 @@ function refresh_database(){
                 ADD FOREIGN KEY (laptopID) REFERENCES laptops (laptopID);`;
         query += `ALTER TABLE laptopGraphics
                 ADD FOREIGN KEY (graphicsID) REFERENCES graphics (graphicsID);`;
-        query += `INSERT INTO laptopGraphics VALUES (1, 1, 1), (2, 2, 2), (3, 2, 3);`;
+        query += `INSERT INTO laptopGraphics VALUES (1, 1, 1), (2,2,4);`;
 
         return query;
     }

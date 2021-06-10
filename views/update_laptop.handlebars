@@ -1,50 +1,56 @@
+{{#if laptops}}
 <div class="direction">
 	<h3 class="direction">Select a laptop to update its info:</h3>
 </div>
-
-	<form method="POST" action="/laptops/update">
-		<div class="entityEntry">
-			<label for="laptopName"><i> Laptop to Update:</i></label>
-			<select id="laptopName" name="laptopNameSelect">
-			{{#each laptops}}	
-				<option value = {{laptopName}}> {{laptopName}} </option>
-			{{/each}}
-			</select>
-		</div>
-		<br>
-		<div class="entityEntry">
-			<label for="laptopName">New Name of Laptop</label>
-			<input type="text" id="laptopName" name="laptopName">
-		</div>
-		<div class="entityEntry">
-			<label for="">Manufacturer (If the manufacturer is not found please return to the homepage and add the desired manufacturer first)</label></br>
-		  	<select id="manufacturers" name = manufacturerID>
-			    <option value="default" selected>No manufacturer</option>
-		    	{{#each manufacturer}}
-		  			<option value = {{manufacturerID}}>{{manufacturerName}}</option>
-		    	{{/each}}
-		  	</select>
-	  	</div>
-			<br>
-	    <div class="entityEntry">
-	      <label for="laptopRAM">RAM</label>
-      <input type="text" id="laptopRAM" name="laptopRAM">
+<form method="POST" action="/laptops/update">
+    <div class="entityEntry">
+        <label for="laptopName"><i> Laptop to Update:</i></label>
+        <select id="laptopName" name="laptopNameSelect">
+        {{#each laptops}}
+            <option value = {{laptopName}}> {{laptopName}} </option>
+        {{/each}}
+        </select>
     </div>
     <br>
-		<div class="entityEntry">
-			<label for="laptopStorage">Storage</label>
-			<input type="text" id="laptopStorage" name="laptopStorage">
-		</div>
-		<br>
-		<div class="entityEntry">
-			<label for="laptopPDF">PDF link</label>
-			<input type="text" id="laptopPDF" name="laptopPDF">
-		</div>
+    <div class="entityEntry">
+        <label for="laptopName">New Name of Laptop</label>
+        <input type="text" id="laptopName" name="laptopName">
+    </div>
+    <br>
+    <div class="entityEntry">
+        <label for="">Manufacturer</label></br>
+        <select id="manufacturers" name = manufacturerID>
+            <option value="default" selected>No manufacturer</option>
+            {{#each manufacturer}}
+                <option value = {{manufacturerID}}>{{manufacturerName}}</option>
+            {{/each}}
+        </select>
+        <p>(If the manufacturer is not found please return to the homepage and add the desired manufacturer first)</p>
+    </div>
+        <br>
+    <div class="entityEntry">
+      <label for="laptopRAM">RAM</label>
+  <input type="text" id="laptopRAM" name="laptopRAM">
+</div>
+<br>
+    <div class="entityEntry">
+        <label for="laptopStorage">Storage</label>
+        <input type="text" id="laptopStorage" name="laptopStorage">
+    </div>
+    <br>
+    <div class="entityEntry">
+        <label for="laptopPDF">PDF link</label>
+        <input type="text" id="laptopPDF" name="laptopPDF">
+    </div>
 
-		<br>
-		<div class="entityEntry">
-			<input type="submit" value="Submit">
-		</div>
-	</form>
-	<!--<button id="checkVal">checkValue</button>-->
+    <br>
+    <div class="entityEntry">
+        <input type="submit" value="Submit">
+    </div>
+</form>
+{{else}}
+    <br>
+    <h3> Laptop table is empty; add a Laptop or refresh database at homepage. </h3>
+    </br>
+{{/if}}
 

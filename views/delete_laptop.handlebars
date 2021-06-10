@@ -1,4 +1,5 @@
-<div class="direction">
+{{#if laptops}}
+    <div class="direction">
     <h3 class="direction">Delete laptop:</h3>
 </div>
 <div>
@@ -11,12 +12,13 @@
                 {{/each}}
             </select>
         </div>
-
-<!--        <div class="entityEntry">-->
-<!--            <button onclick="submitForm()">Submit</button>-->
-<!--        </div>-->
         <div class="entityEntry">
             <input type="submit" value="Submit">
         </div>
     </form>
 </div>
+{{else}}
+    <br>
+    <h3> Laptop table is empty; add a Laptop or refresh database at homepage. </h3>
+    </br>
+{{/if}}

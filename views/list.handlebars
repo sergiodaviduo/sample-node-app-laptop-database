@@ -20,7 +20,7 @@
 	  <tr>
 		<th>laptopID</th>
 		<th>laptopName</th>
-		<th>manufactuerName</th>
+		<th>manufacturerName</th>
 		<th>ram</th>
 		<th>storage</th>
 		<th>pdfLink</th>
@@ -32,7 +32,7 @@
 		  <td>{{manufacturerName}}</td>
 		  <td>{{ram}}</td>
 		  <td>{{storageAmount}}</td>
-		  <td><a href="#">{{pdfLink}}</a></td>
+		  <td><a href="{{pdfLink}}">{{pdfLink}}</a></td>
 		</tr>
 	  {{/each}}
 	  {{#each laptopsNoManu}}
@@ -79,7 +79,7 @@
 		<th>gpuID</th>
 		<th>graphicsName</th>
 		<th>dedicatedMEM</th>
-		<th>manufactuerName</th>
+		<th>manufacturerName</th>
 	  </tr>
 	  {{#each graphics}}
 	  <tr>
@@ -155,7 +155,14 @@
 
 		if(document.getElementById("sample_laptops").value == "1")
 		{
-			document.getElementById("laptopTable").style.display = "block";
+            {{#if laptops}}
+                document.getElementById("laptopTable").style.display = "block";
+            {{else}}
+                document.getElementById("laptopTable").style.display = "block";
+                document.getElementById("laptopTable").innerHTML = '<h3> Laptop table' +
+                        ' is empty; add a Laptop or refresh database at homepage. </h3>';
+                console.log('no laptops in database (frontend notif)');
+            {{/if}}
 		}
 		else if(document.getElementById("sample_laptops").value == "2")
 		{
@@ -171,11 +178,25 @@
 		}
 		else if(document.getElementById("sample_laptops").value == "5")
 		{
-			document.getElementById("lapcpuTable").style.display = "block";
+            {{#if laptops}}
+                document.getElementById("lapcpuTable").style.display = "block";
+            {{else}}
+                document.getElementById("lapcpuTable").style.display = "block";
+                document.getElementById("lapcpuTable").innerHTML = '<h3> Laptop table' +
+                        ' is empty; add a Laptop or refresh database at homepage. </h3>';
+                console.log('no laptops in database (frontend notif)');
+            {{/if}}
 		}
 		else if(document.getElementById("sample_laptops").value == "6")
 		{
-			document.getElementById("lapgpuTable").style.display = "block";
+            {{#if laptops}}
+                document.getElementById("lapgpuTable").style.display = "block";
+            {{else}}
+                document.getElementById("lapgpuTable").style.display = "block";
+                document.getElementById("lapgpuTable").innerHTML = '<h3> Laptop table' +
+                        ' is empty; add a Laptop or refresh database at homepage. </h3>';
+                console.log('no laptops in database (frontend notif)');
+            {{/if}}
 		}
 	}
 </script>

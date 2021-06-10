@@ -2,7 +2,7 @@
 
 Site by Sergio Urrutia-Oyer and lab partner, as part of Oregon State University Ecampus's CS 340 final project.
 
-Utilizes Node.js in conjunction with MariaDB to create an editable database of laptops their specifications, and relevant PDF repair manuals if available.
+Utilizes Node.js in conjunction with MariaDB to create an editable database of laptops and their specifications, and relevant PDF repair manuals if available.
 
 Live site is at https://osu-340-laptop-database.herokuapp.com/
 
