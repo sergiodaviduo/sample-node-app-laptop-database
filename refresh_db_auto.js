@@ -98,11 +98,9 @@ function refresh_database(){
             console.log("*** database re-instantiation failed ***");
             console.log(results);
             console.log(fields);
-            return 1;
         }
         else {
             console.log("** database successfully refreshed **");
-            return 0;
         }
     });
 };
